@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:13
+    restart: always # restart if the container stops or encounters an error
+    # set env, see https://docs.docker.com/compose/environment-variables/set-environment-variables/
+    # in docker compose, use = for env var assignments
+    environment:
+      - POSTGRES_DB=ny_taxi_hw1
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - "./postgres_data:/var/lib/postgresql/data:rw"
+      # :rw is the access mode for read and write. Other options could be ro - read only
+    ports:
+      - "5432:5432"
+    networks:
+      - pgnetwork
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "5555:80"
+    networks:
+      - pgnetwork
+
+networks:
+  pgnetwork:
+
