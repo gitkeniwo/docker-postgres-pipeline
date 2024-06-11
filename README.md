@@ -14,7 +14,7 @@ version of `wheel`: 0.43.0
 Todo: 
 - [x] Implement Commandline args parsing for the py script
 
-```sh
+```ps
 root@localhost:ny_taxi_hw1> SELECT COUNT(*)
  FROM green_tripdata
  WHERE lpep_dropoff_datetime >= '2019-09-18 00:00:00'
@@ -33,7 +33,7 @@ Time: 0.045s
 
 # Q4
 
-```
+```ps
 root@localhost:ny_taxi_hw1> SELECT lpep_pickup_datetime FROM green_tripdata
  WHERE trip_distance = (SELECT MAX(trip_distance) FROM green_tripdata);
 +----------------------+
@@ -47,7 +47,7 @@ Time: 0.078s
 
 # Q5 
 
-```sh
+```ps
 root@localhost:ny_taxi_hw1> SELECT count(
      case when lpep_pickup_datetime >= '2019-09-18 00:00:00'
          and lpep_pickup_datetime <= '2019-09-18 23:59:59'
@@ -78,7 +78,7 @@ Time: 0.100s
 
 
 # Q6
-```
+```sql
 SELECT t."Zone"
 FROM green_tripdata as g
     LEFT JOIN taxi_zone as t 
