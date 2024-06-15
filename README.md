@@ -21,7 +21,6 @@ root@localhost:ny_taxi_hw1> SELECT COUNT(*)
      AND lpep_dropoff_datetime <= '2019-09-18 23:59:59'
      AND lpep_pickup_datetime >= '2019-09-18 00:00:00'
      AND lpep_pickup_datetime <= '2019-09-18 23:59:59';
-
 +-------+
 | count |
 |-------|
